@@ -1,0 +1,13 @@
+with-expecter: True
+quiet: False
+disable-version-string: True
+mockname: "{{.InterfaceName}}"
+filename: "{{.MockName}}.go"
+outpkg: mocks
+tags: "custom2"
+packages:
+  github.com/gameboy86/grpc-server-fx:
+    config:
+    interfaces:
+      GRPCServerConfigurer:
+        config:
