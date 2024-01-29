@@ -2,6 +2,7 @@ package main
 
 import (
 	grpcserverfx "github.com/gameboy86/grpc-server-fx"
+	"github.com/gameboy86/grpc-server-fx/example/services"
 	"go.uber.org/fx"
 )
 
@@ -26,6 +27,9 @@ func main() {
 			fx.Annotate(
 				NewConfig,
 				fx.As(new(grpcserverfx.GRPCServerConfigurer)),
+			),
+			grpcserverfx.AsService(
+				services.NewHelloService,
 			),
 		),
 	).Run()
