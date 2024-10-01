@@ -6,16 +6,11 @@ import (
 	"net"
 	"net/http"
 
-	grpcprom "github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus"
-	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/fx"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/health"
-	healthgrpc "google.golang.org/grpc/health/grpc_health_v1"
-	"google.golang.org/grpc/reflection"
 )
 
+<<<<<<< HEAD
 type GRPCServerConfigurer interface {
 	GRPCServerPort() int
 	GRPCServerReflection() bool
@@ -111,7 +106,9 @@ func NewGRPCServer(
 	}
 }
 
-func NewListener(config GRPCServerConfigurer) (net.Listener, error) {
+func NewListener(
+	config GRPCServerConfigurer,
+) (net.Listener, error) {
 	ln, err := net.Listen(
 		"tcp",
 		fmt.Sprintf(":%v", config.GRPCServerPort()),
